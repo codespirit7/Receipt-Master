@@ -79,7 +79,13 @@ router.get("/invoices", async (req, res) => {
 
     const attach = await easyinvoice.createInvoice(data);
     await fs.writeFileSync("invoice.pdf", attach.pdf, "base64");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
+router.get("/invoices/mail", async (req, res) => {
+  try {
     const filepath = "./invoice.pdf";
 
     const send = require("gmail-send")({
@@ -99,8 +105,9 @@ router.get("/invoices", async (req, res) => {
         console.log(result);
       }
     );
+    res.status(201).send({ message: "Mail sent successfully" });
   } catch (error) {
-    console.log(error);
+    res.status(400).send({ error: error.message });
   }
 });
 
