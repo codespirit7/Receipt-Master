@@ -10,3 +10,8 @@ Receipt Master is a web application which allow users to generate a free invoice
 * Generated invoice template using [Easy Invoice](https://www.npmjs.com/package/easyinvoice).
 * Used [gmail-send](https://www.npmjs.com/package/gmail-send) to send the invoice to the client.
 
+
+## Installation
+  ```cd server   ```
+  ```npm install ```
+  ```npm run start```
