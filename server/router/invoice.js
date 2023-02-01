@@ -3,7 +3,7 @@ const router = express.Router();
 const Invoice = require("../model/invoice_data");
 const easyinvoice = require("easyinvoice");
 const fs = require("fs");
-const { dirname } = require("path");
+require("dotenv").config();
 
 router.post("/invoices", async (req, res) => {
   try {
@@ -29,7 +29,7 @@ router.get("/invoices", async (req, res) => {
       },
       // Your own data
       sender: {
-        company: "Tanishq jwellers ",
+        company: "Sample Shop Address ",
         address: "Near Minal, J.K Road",
         zip: "462022",
         city: "Bhopal",
@@ -55,7 +55,6 @@ router.get("/invoices", async (req, res) => {
         // Invoice data
         date: invoices.createdAt.toString().split(),
         // Invoice due date
-        "due-date": "31-12-2021",
       },
       // The products you would like to see on your invoice
       // Total values are being calculated automatically
@@ -63,7 +62,7 @@ router.get("/invoices", async (req, res) => {
         {
           quantity: invoices.quantity,
           description: invoices.product,
-          "tax-rate": 6,
+          "tax-rate": 5,
           price: invoices.price,
         },
       ],
@@ -90,9 +89,9 @@ router.get("/invoices/mail", async (req, res) => {
 
     const send = require("gmail-send")({
       user: "hackathons.ritesh@gmail.com",
-      pass: "fuadqgbpftqpgqar",
+      pass: process.env.pass,
       to: data.client.city,
-      subject: "test subject",
+      subject: "Your Invoice",
       files: [filepath],
     });
 
