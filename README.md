@@ -18,4 +18,4 @@ Receipt Master is a web application which allow users to generate a free invoice
   
 3. ```npm run start```
 
-4. set your .env 
+4. ```set your .env files ```
