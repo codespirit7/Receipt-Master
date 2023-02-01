@@ -1,0 +1,12 @@
+#btn-hide{
+    display :none;
+}
+
+#pdf {
+    text-align: center;
+}
+
+#pdf canvas {
+    border: 1px solid black;
+    width: 95%;
+}
