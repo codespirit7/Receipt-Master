@@ -12,8 +12,8 @@ Receipt Master is a web application which allow users to generate a free invoice
 
 
 ## Installation
-  ```cd server   ```
+1.  ```cd server   ```
   
-  ```npm install ```
+2.  ```npm install ```
   
-  ```npm run start```
+3. ```npm run start```
