@@ -1,3 +1,9 @@
+body {
+  background-image: url("./bg4.jpg");
+  background-size: 1980px 1380px;
+  background-repeat: no-repeat;
+}
+
 #btn-hide{
     display :none;
 }
