@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Receipt-Master</title>
-   
+    <title>Receipt - Master</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     
 </head>
@@ -21,7 +21,8 @@
     
     <!----navbar-->
     <nav class="navbar navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="https://receipt-master.onrender.com">
+         <img src="./receipt.png" height = "38px"alt="" srcset=""> 
          Receipt-Master
         </a>
       </nav>
@@ -35,21 +36,21 @@
      <div id = "hide1" class="d-flex justify-content-center">
             <div>
         <div class="mb-3">
-            <label for="name" class="form-label">Receipient's Name</label>
+            <label for="name" class="form-label"><strong>Receipient's Name</strong></label>
             <input type="name" class="form-control" id="name" aria-describedby="name">
             </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
+          <label for="email" class="form-label"><strong>Email</strong></label>
           <input type="email" class="form-control" id="email" aria-describedby="email">
           <div id="email" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-          <label for="mobile" class="form-label">Mobile No.</label>
+          <label for="mobile" class="form-label"><strong>Mobile No.</strong></label>
           <input type="mobile" class="form-control" id="mobile">
         </div>
         <!---Adsress Field-->
         <div class="card border-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Receipient's Address</div>
+            <div class="card-header"><strong>Receipient's Address</strong></div>
             <div class="card-body text-secondary">
                 <textarea id = "address" class="form-control"  aria-label="With textarea"></textarea>
              </div>
@@ -77,11 +78,11 @@
     </div>
      </form>
      <div class="d-flex justify-content-center mt-4">
-      <div id = "btn-hide"><button type="button" id = "downloadbtn" class="btn btn-primary">Download</button>
+      <div id = "btn-hide">
+        <button type="button" id = "downloadbtn" class="btn btn-primary">Download</button>
         <button type="button" id = "viewbtn" class="btn btn-primary">view</button>
-        <button type="button" id = "mailbtn" class="btn btn-primary">mail</button>
+        <button type="button" style="display:none" id = "mailbtn" class="btn btn-danger mt-4 mx-5">Mail</button>
       </div>
-     
       
        </div>
        <div class="d-flex justify-content-center mt-4"><div id="pdf"></div></div>
