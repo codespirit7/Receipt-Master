@@ -3,8 +3,7 @@ Receipt Master is a web application which allow users to generate a free invoice
 
 * [click Here to see the project live.](https://receipt-master.onrender.com/)
 
-![Screenshot from 2023-02-01 20-51-15](https://user-images.githubusercontent.com/88592710/216084517-9d3b9e1b-da99-4bfc-9e02-84499c361e73.png)
-
+![Screenshot from 2023-02-04 21-59-14](https://user-images.githubusercontent.com/88592710/216778635-3d51a489-dcac-430f-a7ba-059ed489ecbf.png)
 
 
 ## Dependencies/Libraries
