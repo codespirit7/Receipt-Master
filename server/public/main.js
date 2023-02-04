@@ -10,7 +10,7 @@ async function onDownload() {
 async function onView() {
   showSpinner();
   const data = await fetch("/api/invoices").then((res) => res.json());
-
+  console.log(data);
   const elementId = "pdf";
   const result = await easyinvoice.createInvoice(data);
   await easyinvoice.render(elementId, result.pdf);
@@ -30,25 +30,31 @@ function onSubmit(e) {
   const email = document.querySelector("#email").value;
   const mobile = document.querySelector("#mobile").value;
   const add = document.querySelector("#address").value;
-  const product = document.querySelector("#c1").value;
-  const qty = document.querySelector("#c2").value;
-  const price = document.querySelector("#c3").value;
+
+  var products = [];
+
+  var table = document.getElementById("productTable");
+  var products = [];
+  var table = document.getElementById("productTable");
+  for (var i = 1; i < table.rows.length; i++) {
+    var row = table.rows[i];
+    var productDetails = {
+      quantity: row.cells[1].children[0].value,
+      description: row.cells[0].children[0].value,
+      "tax-rate": 5,
+      price: row.cells[2].children[0].value,
+    };
+    products.push(productDetails);
+  }
+  console.log(productDetails);
 
   document.getElementById("invoice_form").style.display = "none";
   document.getElementById("btn-hide").style.display = "block";
 
-  invoiceDataRequest(name, email, mobile, add, product, qty, price);
+  invoiceDataRequest(name, email, mobile, add, products);
 }
 
-async function invoiceDataRequest(
-  name,
-  email,
-  mobile,
-  address,
-  product,
-  quantity,
-  price
-) {
+async function invoiceDataRequest(name, email, mobile, address, products) {
   try {
     const response = await fetch("/api/invoices", {
       method: "POST",
@@ -60,9 +66,7 @@ async function invoiceDataRequest(
         email,
         mobile,
         address,
-        product,
-        quantity,
-        price,
+        products,
       }),
     });
   } catch (error) {
@@ -70,23 +74,17 @@ async function invoiceDataRequest(
   }
 }
 
-let i = 1;
+let i = 0;
 
 function onClick() {
   var table = document.getElementById("productTable");
   var row = table.insertRow(-1);
-  var ser_no = row.insertCell(0);
-  var product = row.insertCell(1);
-  var qty = row.insertCell(2);
-  var price = row.insertCell(3);
-
-  var c1 = document.querySelector("#c1").outerHTML;
-  var c2 = document.querySelector("#c2").outerHTML;
-  var c3 = document.querySelector("#c3").outerHTML;
-  ser_no.innerHTML = ++i;
-  product.innerHTML = c1;
-  qty.innerHTML = c2;
-  price.innerHTML = c3;
+  var col1 = row.insertCell(0);
+  var col2 = row.insertCell(1);
+  var col3 = row.insertCell(2);
+  col1.innerHTML = "<input type='text' name='name'>";
+  col2.innerHTML = "<input type='text' name='quantity'>";
+  col3.innerHTML = "<input type='text' name='price'>";
 }
 
 function showSpinner() {

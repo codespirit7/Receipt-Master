@@ -53,19 +53,12 @@ router.get("/invoices", async (req, res) => {
         // Invoice number
         number: invoices._id,
         // Invoice data
-        date: invoices.createdAt.toString().split(),
+        date: invoices.createdAt.toString().substring(0, 24),
         // Invoice due date
       },
       // The products you would like to see on your invoice
       // Total values are being calculated automatically
-      products: [
-        {
-          quantity: invoices.quantity,
-          description: invoices.product,
-          "tax-rate": 5,
-          price: invoices.price,
-        },
-      ],
+      products: invoices.products,
       "bottom-notice": "Kindly pay your invoice within 15 days.",
       settings: {
         currency: "INR",
