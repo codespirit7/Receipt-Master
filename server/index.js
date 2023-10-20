@@ -17,12 +17,9 @@ const PORT = process.env.PORT || 5000;
 
 mongoose.set("strictQuery", false);
 
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-  })
-  .then(() => console.log(`mongoDb connected`))
-  .catch((error) => console.log(error));
+mongoose.connect(process.env.MONGO_URL, () => {
+    console.log("Mongo connected");
+});
 
 app.use("/hello", (req, res) => {
   res.send("Hello");
