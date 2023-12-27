@@ -15,11 +15,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.set("strictQuery", false);
 
-mongoose.connect(process.env.MONGO_URL, () => {
-    console.log("Mongo connected");
-});
+mongoose.connect(
+ process.env.MONGO_URL,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 app.use("/hello", (req, res) => {
   res.send("Hello");
