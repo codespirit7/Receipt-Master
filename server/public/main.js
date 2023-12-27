@@ -9,7 +9,7 @@ async function onDownload() {
 
 async function onView() {
   showSpinner();
-  document.getElementById("mailbtn").style.display = "block";
+  // document.getElementById("mailbtn").style.display = "block";
   const data = await fetch("/api/invoices").then((res) => res.json());
   console.log(data);
   const elementId = "pdf";
